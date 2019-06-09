@@ -26,15 +26,15 @@
 // newFn();
 // newFn();
 // newFn();
-after(times, function(callback){
+function after(times, callback) {
     let obj = {};
-    return function(key, data){
+    return function(key,data) {
         obj[key] = data;
-        if(--times === 0){
+        if(--times === 0) {
             callback(obj);
         }
     }
-})
+}
 let newFn = after(2, function(value){
     console.log(value);
 })
