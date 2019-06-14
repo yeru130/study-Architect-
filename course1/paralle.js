@@ -24,3 +24,6 @@ fs.readFile('./age.txt', 'utf8', function(err,data){
 
 // 串行 两个人有关系 上一个人的输出是下一个人的输入
 // 并行 两个人没有关系 可以一起执行
+
+// 前端面试中 发布订阅（promise） 观察者模式
+
