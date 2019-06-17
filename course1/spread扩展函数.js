@@ -1,17 +1,17 @@
 // es6的...扩展函数用来展开数组和对象
-//...的本质是for of函数（扩展一个for of和for in 的区别），for in 用来迭代纯对象比较合适，for of 可以迭代基本所有可迭代的对象
+//for of函数（扩展一个for of和for in 的区别），for in 用来迭代纯对象比较合适，for of 可以迭代基本所有可迭代的对象
 var obj = {name:'yeru', age: 29};
 for(var key in obj){
     console.log(key);//最重要的是key值
     console.log(obj[key]);
 }
 for(var val of obj){
-    console.log(val);//obj is not iterable报错，for of不能循环纯对象，因为春对象没有iterable
+    console.log(val);//obj is not iterable报错，for of不能循环纯对象，因为对象没有iterable
 }
 var arr = [1,2,3];
 console.log(...arr);
 
-//扩展函数可以用来进行浅拷贝
+//扩展函数可以用来进行浅拷贝，...取出对象的属性
 let a = {name: 'yeru', age: 29};
 let b = {job: 'softWare Engineer'};
 let newObj = {...a,...b};
