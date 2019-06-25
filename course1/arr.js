@@ -27,11 +27,17 @@ let arr = [1,2,3];
 var newArr = arr.concat(1)
 console.log(arr);// [1,2,3]原数组不变
 console.log(newArr);//[1,2,3,1]
+console.log(arr.join(''));// 123//string没有join方法
+console.log(arr);//[1,2,3]// 原数组不变
+let arr = ['今天,玩得,开心'];
+console.log(arr[0].split(',')); //split方法针对字符串进行改变的
+[ '今天', '玩得', '开心' ]
 
 let arr = [1,2,3];
 var newArr = arr.slice(1)
 console.log(arr);// [1,2,3]原数组不变
 console.log(newArr);//[2,3]
+console.log(arr.slice(1,2));//2
 
 //splice方法可以删除，插入，替换方法,原数组改变，正常的都用原数组的方法
 // 删除：splice(要删除的第一项位置，要删除的个数)

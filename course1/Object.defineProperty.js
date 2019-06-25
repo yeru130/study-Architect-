@@ -7,7 +7,20 @@ let data = {
     age: 29,
     location: '北京石景山'
 }
+let methods = [push,pop,shift,unshift,slice,splice,reverse];
+let oldproto = Array.prototype;//记住这个是Array.prototype
+let newProto = Object.create(oldproto);
+methods.forEach(method=>{
+    newProto[method] = function() {
+        update();
+        oldproto[method].call(this,...arguments);
+    }  
+})
 function observe(obj) {
+    if(Array.isArray(obj)) {
+        obj.__proto__ = oldproto;
+        return;
+    }
     if(typeof obj !== 'object') return obj;
     for(let key in obj) {
         observeReactive(obj,key,obj[key]);

@@ -11,3 +11,25 @@
 ## I/O异步 阻塞和非阻塞
 -多线程的 内核基于libuv库 内核V8
 -V8引擎中有发放setTimeout 不能操作dom  没有bom 只有ecmascript ,支持拥有服务端的能力，内置很多模块http fs......
+
+## 异步/同步 阻塞和非阻塞
+-异步/同步指的是被调用方
+-阻塞/非阻塞指的是调用方
+
+## 宏任务和微任务
+- 微任务： promise.then , MutationObserver, process.nextTick
+- 宏任务： script , setTimeout , setInterval , setImmediate(ie下),
+MessageChannel, I/O , UI rendering.
+
+> 微任务 会比宏任务快，js会先执行script脚本
+
+## node事件环 （）
+- timers阶段 setTimeout, setInterval
+- poll 阶段（回到 timer 阶段执行回调并且进行I/O回调） fs.readFile()
+           （poll任务为空，有check阶段会进入check阶段)
+- check阶段 setImmediate
+
+setTimeout ,setImmediate 看进入事件循环的时间，是否达到需要执行的时间
+
+I/O的下一个阶段是 check阶段
+
